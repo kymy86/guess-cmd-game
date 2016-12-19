@@ -14,16 +14,22 @@ def create_guess_game():
     guess = False
 
     while guess is False:
-        difficulty = input("%s, choose a difficulty between %d and %d\n" % (your_name, minD, maxD))
+        difficulty = input("{}, choose a difficulty between {} and {}  ".format(
+            your_name,
+            minD,
+            maxD))
         guess = guesser.choose_challenge_level(difficulty)
 
-    print('Well, %s I am thinking of a number between %d and %d\n' % (your_name, Guesser.minRange, Guesser.maxRange))
+    print('Well, {} I am thinking of a number between {} and {}'.format(
+        your_name,
+        Guesser.minRange,
+        Guesser.maxRange))
 
     run = True
     count = 0
 
     while run is True:
-        user_guess = input("%s, take a guess\n" % (your_name))
+        user_guess = input("{}, take a guess:   ".format(your_name))
         count += 1
         run = guesser.run_game(user_guess, count)
         if guesser.status == -1:
@@ -32,9 +38,9 @@ def create_guess_game():
             print("Your guess is too high\n")
 
     if guesser.status == 0:
-        print("Good Job %s You guessed my number in %d guesses!" % (your_name, count))
+        print("Good Job {} You guessed my number in {} guesses!".format(your_name, count))
     else:
-        print("%s, you've lost. My number was %d" % (your_name, guesser.guess_number))
+        print("{}, you've lost. My number was {}".format(your_name, guesser.guess_number))
 
 
 if __name__ == '__main__':
