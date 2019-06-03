@@ -1,8 +1,6 @@
 """
 Simple guess game
 """
-#!/usr/bin/python3
-#pylint: disable=C0103
 from guesser import Guesser
 
 def create_guess_game():
@@ -13,23 +11,16 @@ def create_guess_game():
     minD = Guesser.get_min_difficulty()
     guess = False
 
-    while guess is False:
-        difficulty = input("{}, choose a difficulty between {} and {}  ".format(
-            your_name,
-            minD,
-            maxD))
+    while not guess :
+        difficulty = input(f"{your_name}, choose a difficulty between {minD} and {maxD}  ")
         guess = guesser.choose_challenge_level(difficulty)
-
-    print('Well, {} I am thinking of a number between {} and {}'.format(
-        your_name,
-        Guesser.minRange,
-        Guesser.maxRange))
+        print(f'Well, {your_name} I am thinking of a number between {Guesser.minRange} and {Guesser.maxRange}')
 
     run = True
     count = 0
 
-    while run is True:
-        user_guess = input("{}, take a guess:   ".format(your_name))
+    while run:
+        user_guess = input(f"{your_name}, take a guess:   ")
         count += 1
         run = guesser.run_game(user_guess, count)
         if guesser.status == -1:
@@ -38,9 +29,9 @@ def create_guess_game():
             print("Your guess is too high\n")
 
     if guesser.status == 0:
-        print("Good Job {} You guessed my number in {} guesses!".format(your_name, count))
+        print(f"Good Job {your_name} You guessed my number in {count} guesses!")
     else:
-        print("{}, you've lost. My number was {}".format(your_name, guesser.guess_number))
+        print(f"{your_name}, you've lost. My number was {guesser.guess_number}")
 
 
 if __name__ == '__main__':

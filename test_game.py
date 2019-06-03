@@ -1,7 +1,6 @@
 """
 Test suite for the guess game
 """
-#!/usr/bin/python3
 import unittest
 from guesser import Guesser
 
