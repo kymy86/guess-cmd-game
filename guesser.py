@@ -1,7 +1,6 @@
 """
 Manage the number guess
 """
-#!/usr/bin/python3
 import random
 
 class Guesser:
