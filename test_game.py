@@ -1,7 +1,6 @@
 """
 Test suite for the guess game
 """
-#!/usr/bin/python3
 import unittest
 from guesser import Guesser
 
@@ -40,7 +39,7 @@ class DifficultyTest(unittest.TestCase):
 
     def test_game_attempts(self):
         """ If attempts are greater than allows, return false"""
-        for key in self.guesser.difficultDict.keys():
+        for key in self.guesser.difficult_dict.keys():
             with self.subTest(key=key):
                 self.guesser.difficulty = key
                 res = self.guesser.run_game(12, 11)
