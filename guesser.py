@@ -1,17 +1,16 @@
 """
 Manage the number guess
 """
-#!/usr/bin/python3
 import random
 
 class Guesser:
-    difficultDict = {
+    difficult_dict = {
         1:10,
         2:6,
         3:2,
     }
-    minRange = 1
-    maxRange = 20
+    min_range = 1
+    max_range = 20
     _INIT_STATUS = -100
 
     def __init__(self):
@@ -21,7 +20,7 @@ class Guesser:
 
     def generate_number(self):
         """ generate a random number for the user """
-        self.guess_number = random.randrange(Guesser.minRange, Guesser.maxRange)
+        self.guess_number = random.randrange(Guesser.min_range, Guesser.max_range)
 
     def choose_challenge_level(self, difficulty):
         """ check if the difficulty value is valid or not """
@@ -30,7 +29,7 @@ class Guesser:
         if not difficulty:
             return False
 
-        if difficulty not in Guesser.difficultDict.keys():
+        if difficulty not in Guesser.difficult_dict.keys():
             return False
         else:
             self.difficulty = difficulty
@@ -68,14 +67,13 @@ class Guesser:
     @staticmethod
     def get_min_difficulty():
         """ Return the minimum value of the game level challenge """
-        return min(Guesser.difficultDict.keys(), key=int)
+        return min(Guesser.difficult_dict.keys(), key=int)
 
     @staticmethod
     def get_max_difficulty():
         """ Return the maximum value of the game level chanllenge"""
-        return max(Guesser.difficultDict.keys(), key=int)
+        return max(Guesser.difficult_dict.keys(), key=int)
 
     def get_number_of_attempts(self):
         """ Return the number of attempts for the given difficulty"""
-
-        return Guesser.difficultDict[self.difficulty]
+        return Guesser.difficult_dict[self.difficulty]
