@@ -14,7 +14,7 @@ def create_guess_game():
     while not guess :
         difficulty = input(f"{your_name}, choose a difficulty between {minD} and {maxD}  ")
         guess = guesser.choose_challenge_level(difficulty)
-        print(f'Well, {your_name} I am thinking of a number between {Guesser.minRange} and {Guesser.maxRange}')
+        print(f'Well, {your_name} I am thinking of a number between {Guesser.min_range} and {Guesser.min_range}')
 
     run = True
     count = 0
